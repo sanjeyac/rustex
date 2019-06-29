@@ -1,4 +1,5 @@
 use std::char;
+use std::collections::LinkedList;
 
 /**************************************
  * 
@@ -87,15 +88,20 @@ fn rusthero_accumulator_state(input: String) -> String {
 
 /**************************************
  * 
- *  Fast  Version - lot of memory needed BUT TIME 0.307 sec
+ *  BEST SOLUTION SO FAR
+ * 
+ *  Fast  Version - TIME 0.407 sec
+*                   ==============
+ * 
+ * we could use an array instead of a list to improve performance
+ * but then we need to manage array re-allocation
+ * when the capacity of the array is close to the end
  * 
 ***************************************/
 fn rusthero_fast(input: String) -> String {
 
-    // TODO: needs improvement to avoid a failure due limited array size!
-    // a solutions with vec() or linkedlist are slower
 
-    let mut buffer: [char; 500000] = ['0'; 500000];
+    let mut buffer: LinkedList<char> = LinkedList::new(); // append with O(1)
     let mut size = 0;
 
     let mut output = String::from("");
@@ -106,22 +112,18 @@ fn rusthero_fast(input: String) -> String {
         if last_char == c || last_char == '0' {
             counter +=1;
         } else {
-            buffer[size] = char::from_digit(counter, 10).unwrap();
-            buffer[size+1] = last_char;
+            buffer.push_back(char::from_digit(counter, 10).unwrap());
+            buffer.push_back(last_char);
             counter = 1;              
-            size +=2;
+
         }
         last_char = c;
                
     }
-    output.push_str(&counter.to_string());
-    output.push_str(&last_char.to_string());  
-    buffer[size] = char::from_digit(counter, 10).unwrap();
-    buffer[size+1] = last_char;
-    counter = 1;  
-    size +=2;
+    buffer.push_back(char::from_digit(counter, 10).unwrap());
+    buffer.push_back(last_char);
 
-    return buffer[0 .. size].into_iter().collect();
+    return buffer.into_iter().collect();
 }
 
 // rustc  main.rs
