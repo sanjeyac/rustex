@@ -92,6 +92,9 @@ fn rusthero_accumulator_state(input: String) -> String {
 ***************************************/
 fn rusthero_fast(input: String) -> String {
 
+    // TODO: needs improvement to avoid a failure due limited array size!
+    // a solutions with vec() or linkedlist are slower
+
     let mut buffer: [char; 500000] = ['0'; 500000];
     let mut size = 0;
 
@@ -121,7 +124,7 @@ fn rusthero_fast(input: String) -> String {
     return buffer[0 .. size].into_iter().collect();
 }
 
-
+// rustc  main.rs
 fn main() {
 
     let input = String::from("22164224441");
