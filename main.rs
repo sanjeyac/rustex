@@ -3,7 +3,12 @@ use std::collections::LinkedList;
 
 /**************************************
  * 
- *  Simple Version - time 1.731 sec
+ *  Simple Version 
+ * 
+ *  time 1.731 sec
+ *  
+ *  with optimization
+ *  time 0.127 sec
  * 
 ***************************************/
 fn rusthero_simple(input: String) -> String {
@@ -34,7 +39,12 @@ fn rusthero_simple(input: String) -> String {
 
 /**************************************
  * 
- *  Accumulated State Version -  time 1.099 sec
+ *  Accumulated State Version -  
+ * 
+ *  time 1.099 sec
+ * 
+ *  with optimization
+ *  time 0.097 sec
  * 
 ***************************************/
 
@@ -90,8 +100,13 @@ fn rusthero_accumulator_state(input: String) -> String {
  * 
  *  BEST SOLUTION SO FAR
  * 
- *  Fast  Version - TIME 0.407 sec
-*                   ==============
+ *  Fast  Version - 
+ * 
+ *  time 0,407
+ *  
+ *  with optimazation
+ *  time 0.087 sec
+ * 
  * 
  * we could use an array instead of a list to improve performance
  * but then we need to manage array re-allocation
@@ -138,7 +153,7 @@ fn main() {
         
          value = rusthero_fast(value);
         // value = rusthero_accumulator_state(value);
-        //value = rusthero_simple(value);
+        // value = rusthero_simple(value);
 
         if (max < value.len()){
             max = value.len();
