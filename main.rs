@@ -7,7 +7,7 @@ use std::collections::LinkedList;
  * 
  *  time 1.731 sec
  *  
- *  with optimization
+ *  with compiler optimization
  *  time 0.127 sec
  * 
 ***************************************/
@@ -43,7 +43,7 @@ fn rusthero_simple(input: String) -> String {
  * 
  *  time 1.099 sec
  * 
- *  with optimization
+ *  with compiler optimization
  *  time 0.097 sec
  * 
 ***************************************/
@@ -104,7 +104,7 @@ fn rusthero_accumulator_state(input: String) -> String {
  * 
  *  time 0,407
  *  
- *  with optimazation
+ *  with compiler optimazation
  *  time 0.087 sec
  * 
  * 
