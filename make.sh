@@ -1,4 +1,4 @@
 #!/bin/bash
 rm main
-rustc  main.rs
+rustc  -C opt-level=3 main.rs
 ./main
