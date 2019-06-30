@@ -165,3 +165,46 @@ fn main() {
 
 }
 
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+    #[test]
+    fn test_1() {
+        let result = rusthero_fast("1".to_string());
+        assert_eq!( result , "11" );
+    }
+
+    #[test]
+    fn test_11() {
+        let result = rusthero_fast("11".to_string());
+        assert_eq!( result , "21" );
+    }
+
+    #[test]
+    fn test_31() {
+        let result = rusthero_fast("31".to_string());
+        assert_eq!( result , "1311" );
+    }
+
+    #[test]
+    fn test_3211() {
+        let result = rusthero_fast("3211".to_string());
+        assert_eq!( result , "131221" );
+    }
+
+    #[test]
+    fn test_111223() {
+        let result = rusthero_fast("111223".to_string());
+        assert_eq!( result , "312213" );
+    }        
+
+
+    #[test]
+    fn test_312213() {
+        let result = rusthero_fast("312213".to_string());
+        assert_eq!( result , "1311221113" );
+    }        
+}
