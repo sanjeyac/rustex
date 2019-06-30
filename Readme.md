@@ -30,4 +30,19 @@ fn rusthero_simple(input: String) -> String {
 }
 ```
 
-after this a solution using the fold has been implemented
+after this a solution using  `fold` has been implemented
+
+```
+fn rusthero(input: String) -> String {
+
+    let empty_accumulator = AccumulatorState::new();
+
+    let mut result = input
+            .chars()
+            .fold( empty_accumulator , | acc, value | acc.accumulate(&value) );
+
+    result.add_to_output();
+
+    return result.as_string();
+}
+```
