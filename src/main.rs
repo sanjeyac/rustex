@@ -25,6 +25,9 @@ impl AccumulatorState {
         return AccumulatorState { last_letter: '0', count: 0, buffer: LinkedList::new() };
     }
 
+    /** 
+     *  This is the core function, in this way we can heavily tests this part of the code
+     */
     fn accumulate(mut self, current_letter: &char) -> AccumulatorState {       
 
         if *current_letter == self.last_letter || self.last_letter == '0'{
@@ -43,7 +46,7 @@ impl AccumulatorState {
         self.buffer.push_back(self.last_letter);     
     }
 
-    fn as_string(&mut self) -> String {
+    fn as_string(&self) -> String {
         let final_string = self.buffer.clone().into_iter().collect();
         return final_string;
     }
